@@ -13,11 +13,10 @@ public class Main {
             int div;
             for (div = 2; div <= 1000 && div < num; div++) {
                 if (num % div == 0) {
-                    div = 0;
                     break;
                 }
             }
-            if (div != 0) {
+            if (div == num) {
                 cnt++;
             }
         }
