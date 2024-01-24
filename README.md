@@ -3,4 +3,4 @@
 
 ***
 
-### [블로그 링크](https://dekoms-coding.tistory.com/manage/posts/?searchKeyword=%EB%B0%B1%EC%A4%80&searchType=title)
+### <a href="https://dekoms-coding.tistory.com/manage/posts/?searchKeyword=%EB%B0%B1%EC%A4%80&searchType=title/" target="_blank"> 블로그 링크 </a>
