@@ -1,9 +1,4 @@
 def solution(emergency):
-    res = []
-    for i in emergency:
-        idx = 1
-        for j in emergency:
-            if i < j:
-                idx += 1
-        res.append(idx)
-    return res
+    sort = sorted(emergency, reverse=True)
+    d = {el: rank + 1 for rank, el in enumerate(sort)}
+    return [d[x] for x in emergency]
