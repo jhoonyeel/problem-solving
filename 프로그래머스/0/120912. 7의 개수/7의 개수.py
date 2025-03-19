@@ -1,5 +1,4 @@
 def solution(array):
-    res = 0
-    for x in array:
-        res += str(x).count('7')
-    return res
+    return str(array).count('7')
+    # 배열 전체를 문자열로 변환.
+    # "[7, 77, 17]"
