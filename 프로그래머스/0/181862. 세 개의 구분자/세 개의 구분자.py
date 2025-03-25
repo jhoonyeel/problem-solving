@@ -1,4 +1,4 @@
 def solution(myStr):
-    not_in_abc_lst = [x if x not in 'abc' else ' ' for x in myStr]
-    word_lst = ''.join(not_in_abc_lst).split(' ')
-    return [x for x in word_lst if x] or ['EMPTY']
+    not_in_abc_lst = myStr.replace('a', ' ').replace('b', ' ').replace('c', ' ').split(' ')
+    lst = [x for x in not_in_abc_lst if x]
+    return lst or ['EMPTY']
