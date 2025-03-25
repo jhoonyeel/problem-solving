@@ -8,8 +8,6 @@ def solution(arr):
     
     if l_idx == -1:
         return [-1]
-    elif l_idx == r_idx:
-        return arr[l_idx:r_idx + 1]
     else:
         return arr[l_idx:r_idx + 1]
         
