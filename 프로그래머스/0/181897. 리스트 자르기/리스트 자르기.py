@@ -1,10 +1,8 @@
 def solution(n, slicer, num_list):
     a, b, c = slicer
-    if n == 1:
-        return num_list[:b + 1]
-    elif n == 2:
-        return num_list[a:]
-    elif n == 3:
-        return num_list[a:b + 1]
-    elif n == 4:
-        return num_list[a:b + 1:c]
+    
+    start = 0 if n == 1 else a
+    end = b + 1 if n in (1, 3, 4) else None
+    step = c if n == 4 else None
+    
+    return num_list[start:end:step]
