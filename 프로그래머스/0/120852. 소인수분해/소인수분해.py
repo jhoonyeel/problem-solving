@@ -1,11 +1,11 @@
 def solution(n):
     res = []
-    for x in range(2, n + 1):
-        isSoinsu = True
-        for y in res:
-                if x % y == 0:
-                    isSoinsu = False
-                    break
-        if n % x == 0 and isSoinsu:
-            res.append(x)
+    div = 2
+    while div <= n:
+        if n % div == 0:
+            n //= div
+            if div not in res:
+                res.append(div)
+        else:
+            div += 1
     return res
