@@ -3,20 +3,19 @@ numbers = [int(input()) for _ in range(n)]
 
 stk = []
 op = []
-start = 1
+going_up = 1
 is_valid = True
 for target in numbers:
-  if target >= start:
-      for x in range(start, target + 1):
-          stk.append(x)
-          op.append('push')
-      start = target + 1
+  while target >= going_up:
+    stk.append(going_up)
+    op.append('push')
+    going_up += 1
   if stk and stk[-1] == target:
-      stk.pop()
-      op.append('pop')
+    stk.pop()
+    op.append('pop')
   else:
-      is_valid = False
-      break
+    is_valid = False
+    break
 
 if is_valid:
   for x in op:
