@@ -1,10 +1,10 @@
-from collections import deque
-
 N, K = map(int, input().split())
-q = deque(range(1, N + 1))
+people = list(range(1, N + 1))
 
-lst = []
-while q:
-  q.rotate(-(K - 1))
-  lst.append(str(q.popleft()))
-print(f"<{', '.join(lst)}>")
+result = []
+idx = 0
+while people:
+    idx = (idx + K - 1) % len(people)
+    result.append(str(people.pop(idx)))
+
+print(f"<{', '.join(result)}>")
