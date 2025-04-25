@@ -8,7 +8,7 @@ lst = list(map(int, input().split()))
 freq = Counter(lst)
 stk = []
 res = [-1] * n
-for i in range(n - 1, -1, -1):
+for i in reversed(range(n)):
   current = lst[i]
   while stk and freq[stk[-1]] <= freq[current]:
     stk.pop()
