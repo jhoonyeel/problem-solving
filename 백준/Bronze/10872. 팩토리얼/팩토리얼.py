@@ -1,7 +1,6 @@
 N = int(input())
 
 res = 1
-while N:
-  res *= N
-  N -=  1
+for x in range(2, N + 1):
+  res *= x
 print(res)
