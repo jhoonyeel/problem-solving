@@ -1,14 +1,19 @@
 n = int(input())
+drink = [int(input()) for _ in range(n)]
 
-el = [int(input()) for _ in range(n)]
+if n == 1:
+  print(drink[0])
+elif n == 2:
+  print(drink[0] + drink[1])
+else:
+  dp = [0] * (n + 1)
+  dp[1] = drink[0]
+  dp[2] = drink[0] + drink[1]
 
-dp = [[0] * 3 for _ in range(n + 1)]
-dp[1][0] = 0
-dp[1][1] = el[0]
-dp[1][2] = 0
-
-for i in range(2, n + 1):
-  dp[i][0] = max(dp[i - 1][0], dp[i - 1][1], dp[i - 1][2])
-  dp[i][1] = (dp[i - 1][0]) + el[i - 1]
-  dp[i][2] = (dp[i - 1][1]) + el[i - 1]
-print(max(dp[n]))
+  for i in range(3, n + 1):
+    dp[i] = max(
+      dp[i - 1],
+      dp[i - 2] + drink[i - 1],
+      dp[i - 3] + drink[i - 2] + drink[i - 1]
+    )
+  print(dp[n])
