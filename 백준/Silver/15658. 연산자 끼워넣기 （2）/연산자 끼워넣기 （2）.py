@@ -28,5 +28,5 @@ def dfs(idx, result, op_cnt):
   return local_max, local_min
 
 max_val, min_val = dfs(1, Ai[0], cnt[:])
-print(int(max_val))
-print(int(min_val))
+print(max_val)
+print(min_val)
