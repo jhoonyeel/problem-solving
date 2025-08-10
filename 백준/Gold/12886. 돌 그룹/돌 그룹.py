@@ -1,33 +1,45 @@
-import sys
-sys.setrecursionlimit(1000000)
-
+from collections import deque
 A, B, C = map(int, input().split())
 S = A + B + C
+
+# 합이 3으로 나누어떨어지지 않으면 불가능
 if S % 3 != 0:
   print(0)
-  exit()
+  exit(0)
 
-MAX = 1500
-visited = [[False]*(MAX+1) for _ in range(MAX+1)]
+# 상태 정규화: 오름차순
+a, b, c = sorted([A, B, C])
 
-def dfs(a, b):
-  a, b, c = sorted((a, b, S - a - b))
-  if visited[a][b]:
-    return False
-  visited[a][b] = True
+# visited[a][b]만 관리(세 번째는 S-a-b로 결정)
+MAX = 1500  # A,B,C ≤ 500 → S ≤ 1500
+visited = [[False] * (MAX + 1) for _ in range(MAX + 1)]
+
+q = deque()
+visited[a][b] = True
+q.append((a, b))
+
+def move(x, y):
+  """x != y 일 때, (x<y) 가정하에 (2x, y-x) 반환"""
+  if x < y:
+    return x + x, y - x
+  else:
+    return x - y, y + y  # x>y인 경우 대칭 처리
+
+res = 0
+while q:
+  a, b = q.popleft()
+  c = S - a - b
   if a == b == c:
-    return True
+    res = 1
+    break
 
-  # 세 쌍 (a,b), (a,c), (b,c)에 대해 연산
-  for x, y in ((a,b), (a,c), (b,c)):
-    if x == y: 
+  for x, y in ((a, b), (a, c), (b, c)):
+    if x == y:
       continue
-    # x<y가 되게 잡고 (2x, y-x)
-    if x < y:
-      nx, ny = x+x, y-x
-      nz = S - nx - ny
-      na, nb = sorted((nx, ny))  # 정규화는 dfs 들어갈 때 다시 수행됨
-      if dfs(na, nb):
-        return True
-  return False
-print(1 if dfs(A, B) else 0)
+    nx, ny = move(x, y)
+    nz = S - nx - ny
+    na, nb, nc = sorted((nx, ny, nz))
+    if not visited[na][nb]:
+      visited[na][nb] = True
+      q.append((na, nb))
+print(res)
