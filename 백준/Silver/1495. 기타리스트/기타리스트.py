@@ -1,21 +1,21 @@
 N, S, M = map(int, input().split())
+Vi = list(map(int, input().split()))
 
-Vol = list(map(int,input().split()))
+visited = [[False] * (M + 1) for _ in range(N + 1)]
+res = -1
+def dfs(order, cur_vol):
+  global res
+  if not (0 <= cur_vol <= M):
+    return
+  if visited[order][cur_vol]:
+    return
+  visited[order][cur_vol] = True
 
-dp = [[False] * (M + 1) for _ in range(N + 1)]
-dp[0][S] = True
+  if order == N:  # 모든 곡 다 탐색
+    res = max(res, cur_vol)
+    return
 
-for i in range(N):
-  for v in range(M + 1):
-    if dp[i][v]:
-      if v + Vol[i] <= M:
-        dp[i + 1][v + Vol[i]] = True
-      if v - Vol[i] >= 0:
-        dp[i + 1][v - Vol[i]] = True
-
-for v in range(M, -1, -1):
-  if dp[N][v]:
-    print(v)
-    break
-else:
-  print(-1)
+  dfs(order + 1, cur_vol + Vi[order])
+  dfs(order + 1, cur_vol - Vi[order])
+dfs(0, S)
+print(res)
