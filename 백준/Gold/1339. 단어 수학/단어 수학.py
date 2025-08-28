@@ -1,24 +1,22 @@
 N = int(input())
-words = [input() for _ in range(N)]
+words = [list(input()) for _ in range(N)]
 
-weight = {}
+d = {}
 
 for word in words:
-  digit = 1  # 일의 자리부터 시작
-  for char in reversed(word):  # 뒤에서부터 순회 (일의 자리부터 시작)
-    if char in weight:
-      weight[char] += digit
+  weight = 1
+  for w in reversed(word):
+    if w not in d:
+      d[w] = 1 * weight
     else:
-      weight[char] = digit
-    digit *= 10  # 다음은 십의 자리, 백의 자리, ...
+      d[w] += (1 * weight)
+    weight *= 10
 
-# 가중치 내림차순 정렬
-sorted_weights = sorted(weight.items(), key=lambda x: x[1], reverse=True)
+srt_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
 
-# 알파벳에 숫자 할당
+res = 0
 num = 9
-total = 0
-for char, w in sorted_weights:
-  total += w * num
+for _, val in srt_d:
+  res += num * val
   num -= 1
-print(total)
+print(res)
