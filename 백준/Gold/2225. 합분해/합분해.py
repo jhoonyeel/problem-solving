@@ -1,13 +1,14 @@
 N, K = map(int, input().split())
-
 MOD = 1_000_000_000
 
-dp = [[0] * (N + 1) for _ in range(K + 1)]
-for i in range(N + 1):
-    dp[1][i] = 1
+dp = [[0] * (K + 1) for _ in range(N + 1)]
+# dp[n][k]: n을 k개의 수의 합으로 나타내는 경우의 수
 
-for k in range(2, K + 1):
-  for n in range(N + 1):
-    for i in range(n + 1):
-      dp[k][n] = (dp[k][n] + dp[k - 1][n - i]) % MOD
-print(dp[K][N] % MOD)
+# n=0은 어떤 k든 1가지 (전부 0으로 표현 가능)
+for k in range(K + 1):
+  dp[0][k] = 1
+
+for n in range(1, N + 1):
+  for k in range(1, K + 1):
+    dp[n][k] = (dp[n - 1][k] + dp[n][k - 1]) % MOD
+print(dp[N][K])
