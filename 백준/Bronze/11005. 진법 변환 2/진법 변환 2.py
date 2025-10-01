@@ -1,9 +1,5 @@
 N, B = map(int, input().split())
 
-if N == 0:
-  print(0)
-  exit()
-
 p = 1
 while B ** p <= N:
   p += 1
