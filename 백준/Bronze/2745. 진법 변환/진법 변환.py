@@ -1,13 +1,12 @@
 N, B = input().split()
 
-length = len(N)
 res = 0
-for i in range(length):
-  ch = N[i]
-  if '0' <= ch <= '9':
-    value = int(ch)
+power = 0
+for x in reversed(N):
+  if x.isdigit():
+    ten = int(x)
   else:
-    value = ord(ch) - ord('A') + 10
-  power = length - 1 - i
-  res += value * (int(B) ** power)
+    ten = ord(x) - 55
+  res += ten * (int(B) ** power)
+  power += 1
 print(res)
