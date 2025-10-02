@@ -1,2 +1,2 @@
 b = input()
-print(format(int(b, 2), 'o'))
+print(oct(int(b, 2))[2:])
