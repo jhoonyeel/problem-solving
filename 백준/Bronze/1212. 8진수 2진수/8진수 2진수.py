@@ -1,4 +1,2 @@
-octal = input()
-
-decimal = int(octal, 8)
-print(bin(decimal)[2:])
+o = int(input(), 8)
+print(bin(int(o))[2:])
