@@ -1,28 +1,24 @@
 from collections import deque
 N, M = map(int, input().split())
-board = [list(map(int,list(input()))) for _ in range(N)]
+board = [list(map(int, input())) for _ in range(N)]
 
-dict = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+d = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
 def bfs(x, y):
-  visited = [[False] * (M + 1) for _ in range(N + 1)]
-  q = deque()
+  q = deque([(x, y, 1)])
+  visited = [[False] * M for _ in range(N)]
   visited[x][y] = True
-  q.append((x, y, 1))
   
   while q:
     x, y, cnt = q.popleft()
-    
-    if x == N and y == M:
+    if x == N - 1 and y == M - 1:
       return cnt
     
-    for dx, dy in dict:
+    for dx, dy in d:
       nx, ny = x + dx, y + dy
-      if 1 <= nx <= N and 1 <= ny <= M:
-        if board[nx - 1][ny - 1] == 0:
-          continue
-        if not visited[nx][ny]:
-          visited[nx][ny] = True
+      if 0 <= nx < N and 0 <= ny < M:
+        if not visited[nx][ny] and board[nx][ny] == 1:
           q.append((nx, ny, cnt + 1))
-  return -1
-print(bfs(1, 1))
+          visited[nx][ny] = True
+
+print(bfs(0, 0))
