@@ -1,34 +1,26 @@
+# 날짜를 day 단위로 변환
+def to_days(date):
+    y, m, d = map(int, date.split('.'))
+    return y * 12 * 28 + m * 28 + d
+
 def solution(today, terms, privacies):
-    today_y, today_m, today_d = map(int, today.split('.'))
-    
+    today_days = to_days(today)
+
+    # 약관 딕셔너리
     dic = {}
-    for el in terms:
-        x, long = el.split()
-        dic[x] = int(long)
-    
+    for t in terms:
+        key, val = t.split()
+        dic[key] = int(val) * 28   # 개월 → 일로 변환
+
     res = []
-    for idx, el in enumerate(privacies):
-        date, t = el.split()
-        y, m, d = map(int, date.split('.'))
-        
-        # 1) 개월 더하기
-        m += dic[t]
 
-        # 2) 12개월 단위로 연도 증가 처리
-        y += (m - 1) // 12
-        m = (m - 1) % 12 + 1
+    for idx, p in enumerate(privacies):
+        date, term_type = p.split()
+        start = to_days(date)
+        expire = start + dic[term_type]   # 만료일
 
-        # 3) 유효기간은 "만료일 - 1일"
-        d -= 1
-        if d == 0:         # 날짜가 0일이 되면 한 달 전으로 이동
-            m -= 1
-            d = 28
-            if m == 0:
-                y -= 1
-                m = 12
-
-        # 4) 오늘과 만료일 비교 (튜플 비교 사용)
-        if (y, m, d) < (today_y, today_m, today_d):
+        # 만료일 < 오늘 → 폐기 대상
+        if expire <= today_days:
             res.append(idx + 1)
-    
+
     return res
