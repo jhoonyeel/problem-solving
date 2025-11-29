@@ -1,13 +1,8 @@
 A, B = map(int, input().split())
 C = int(input())
 
-hour = A
-minutes = B + C
-if minutes >= 60:
-  hour += minutes // 60
-  minutes = minutes % 60
-
-if hour >= 24:
-  hour = hour % 24
+total_min = A * 60 + B + C
+hour = (total_min // 60) % 24
+minutes = total_min % 60
 
 print(hour, minutes)
