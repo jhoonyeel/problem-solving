@@ -1,13 +1,9 @@
 N, M = map(int, input().split())
-S = set()
-for _ in range(N):
-  record = input()
-  S.add(record)
 
-checks = [input() for _ in range(M)]
+S = {input() for _ in range(N)}
 
 cnt = 0
-for el in checks:
-  if el in S:
+for _ in range(M):
+  if input() in S:
     cnt += 1
 print(cnt)
