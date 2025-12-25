@@ -1,13 +1,17 @@
 from collections import deque
 N = int(input())
 
+if N == 1:
+  print(1)
+  exit()
+
 q = deque(range(1, N + 1))
 
-while q:
+while True:
+  q.popleft()
   if len(q) == 1:
     print(q[0])
     break
   
-  q.popleft()
-  top = q.popleft()
-  q.append(top)
+  x = q.popleft()
+  q.append(x)
