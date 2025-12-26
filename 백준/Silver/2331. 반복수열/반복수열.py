@@ -1,22 +1,18 @@
-def plus_each_numbers(number, P):
-  res = 0
-  for ch in str(number):
-    res += int(ch) ** P
-  return res
+A, P = input().split()
 
-A, P = map(int, input().split())
+number = list(map(int, A))
+sq = int(P)
 
-seen_idx = 0
-ans = []
+sequence = [int(A)]
+
 while True:
-  if len(ans) == 0:
-    ans.append(A)
-    continue
-  
-  A = plus_each_numbers(A, P)
-  if A in ans:
-    seen_idx = ans.index(A)
+  total = 0
+  for n in number:
+    total += n ** sq
+
+  if total in sequence:
+    print(sequence.index(total))
     break
-  ans.append(A)
-ans = ans[:seen_idx]
-print(len(ans))
+
+  sequence.append(total)
+  number = list(map(int, str(total)))
