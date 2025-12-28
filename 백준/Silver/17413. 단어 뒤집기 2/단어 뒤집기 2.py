@@ -1,26 +1,35 @@
-chars = list(input())
+S = input()
 
-res = []
-reverse_stack = []
+stk = []
+r_stk = []
 is_tag = False
-for idx, x in enumerate(chars):
-  if x == '<':
-    if reverse_stack:
-      res.append(''.join(reverse_stack[::-1]))
-      reverse_stack = []
+
+for ch in S:
+  if ch == '<':
+    while stk:
+      r_stk.append(stk.pop())
     is_tag = True
-    res.append(x)
-  elif x == '>':
+    r_stk.append(ch)
+
+  elif ch == '>':
     is_tag = False
-    res.append(x)
-  elif is_tag:
-    res.append(x)
-  elif not is_tag and x.isalnum():
-    reverse_stack.append(x)
-  elif not is_tag and x == ' ':
-    res.append(''.join(reverse_stack[::-1]))
-    reverse_stack = []
-    res.append(x)
-if reverse_stack:
-  res.append(''.join(reverse_stack[::-1]))
-print(''.join(res))
+    r_stk.append(ch)
+
+  elif ch == ' ':
+    if is_tag:
+      r_stk.append(ch)
+    else:
+      while stk:
+        r_stk.append(stk.pop())
+      r_stk.append(ch)
+
+  else:
+    if is_tag:
+      r_stk.append(ch)
+    else:
+      stk.append(ch)
+
+while stk:
+  r_stk.append(stk.pop())
+
+print(''.join(r_stk))
