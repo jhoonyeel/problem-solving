@@ -3,16 +3,20 @@ seq = list(map(int, input().split()))
 
 left, right = 0, 0
 current_sum = 0
-min_length = N + 1  # 가능한 최대보다 크게 설정
+l = float('inf')
 
 while True:
   if current_sum >= S:
-    min_length = min(min_length, right - left)
+    l = min(l, right - left)
     current_sum -= seq[left]
     left += 1
-  elif right == N:
-    break
   else:
+    if right == N:
+      break
     current_sum += seq[right]
     right += 1
-print(min_length if min_length != N + 1 else 0)
+
+if l != float('inf'):
+  print(l)
+else:
+  print(0)
