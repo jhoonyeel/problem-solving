@@ -1,16 +1,11 @@
 N = int(input())
-if N == 1:
-  exit()
 
-res = []
-div = 2
-while True:
-  if N <= 1:
-    break
-  if N % div == 0:
-    N = N // div
-    res.append(div)
-  else:
-    div += 1
+MAX = int(N ** 0.5) + 1
 
-print(*res, sep='\n')
+for x in range(2, MAX + 1):
+  while N % x == 0:
+    print(x)
+    N //= x
+
+if N > 1:
+  print(N)
