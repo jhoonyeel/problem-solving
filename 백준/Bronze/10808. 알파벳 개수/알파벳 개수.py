@@ -1,7 +1,7 @@
 S = input()
 
-cnt = [0] * 26
-for x in S:
-  idx = ord(x) - 97
-  cnt[idx] = S.count(x)
-print(' '.join(map(str, cnt)))
+alphabet = [0] * 26
+for ch in S:
+  idx = ord(ch) - 97
+  alphabet[idx] += 1
+print(*alphabet)
