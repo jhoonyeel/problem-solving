@@ -1,2 +1,3 @@
 N, B = input().split()
-print(int(N, int(B)))
+
+print(int(N, base=int(B)))
