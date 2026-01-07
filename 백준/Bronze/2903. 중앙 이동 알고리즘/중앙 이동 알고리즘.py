@@ -1,7 +1,7 @@
 N = int(input())
 
-side = 2  # 한 변의 점 개수 (1단계)
+edge = 2
 for _ in range(N):
-  side = side * 2 - 1
-
-print(side ** 2)
+  edge = edge * 2 - 1
+dots = edge * edge
+print(dots)
