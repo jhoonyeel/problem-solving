@@ -1,7 +1,7 @@
 N, M = map(int, input().split())
+buckets = list(range(1, N + 1))
 
-seq = list(range(1, N + 1))
 for _ in range(M):
-  start, end = list(map(int, input().split()))
-  seq[start - 1:end] = seq[start - 1:end][::-1]
-print(*seq)
+  i, j = map(int, input().split())
+  buckets = buckets[:i-1] + buckets[i-1:j][::-1] + buckets[j:]
+print(*buckets)
