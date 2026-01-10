@@ -1,17 +1,16 @@
 T = int(input())
+MAX = 15
+apt = [[0] * MAX for _ in range(MAX)]
+for i in range(1, MAX):
+  ho = i - 1
+  apt[0][ho] = i
+
+for layer in range(1, MAX):
+  for ho in range(1, MAX):
+    ho -= 1
+    apt[layer][ho] = sum(apt[layer - 1][:ho+1])
 
 for _ in range(T):
   k = int(input())
   n = int(input())
-  
-  # (k층, n호)를 표현할 2차원 DP 테이블
-  apt = [[0] * (n + 1) for _ in range(k + 1)]
-  
-  # 0층 초기화: 0층 i호 = i
-  for i in range(1, n + 1):
-    apt[0][i] = i
-  
-  for floor in range(1, k + 1):      # 1층부터 k층까지
-    for room in range(1, n + 1):   # 1호부터 n호까지
-      apt[floor][room] = apt[floor][room - 1] + apt[floor - 1][room]
-  print(apt[k][n])
+  print(apt[k][n-1])
