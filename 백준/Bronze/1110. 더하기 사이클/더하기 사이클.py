@@ -1,15 +1,13 @@
 N = int(input())
 
-curr = N
-cnt = 0
-
+cycle = 0
+cur = N
 while True:
-  a = curr // 10      # 십의 자리
-  b = curr % 10       # 일의 자리
-  curr = b * 10 + ((a + b) % 10)  # 새 숫자 생성
-  cnt += 1
-  
-  if curr == N:       # 원래 수로 돌아오면 종료
+  if cur == N and cycle > 0:
     break
-
-print(cnt)
+  
+  left = cur%10
+  right = (cur//10 + cur%10) % 10
+  cur = left * 10 + right
+  cycle += 1
+print(cycle)
