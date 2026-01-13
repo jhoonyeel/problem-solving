@@ -26,3 +26,7 @@ def solution(dirs):
     dfs(0, 0, 0)
     
     return len(record)
+
+# 피드백
+# dfs/bfs는 그래프 탐색으로, 현재 위치에서 어떤 방향으로 진행할 지 선택해야 할 때 사용한다.
+# 선형 순회
