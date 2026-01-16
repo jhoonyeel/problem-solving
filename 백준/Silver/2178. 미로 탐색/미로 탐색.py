@@ -2,23 +2,22 @@ from collections import deque
 N, M = map(int, input().split())
 board = [list(map(int, input())) for _ in range(N)]
 
-d = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-
-def bfs(x, y):
-  q = deque([(x, y, 1)])
+def bfs():
   visited = [[False] * M for _ in range(N)]
-  visited[x][y] = True
+  q = deque([(0, 0, 1)])
+  visited[0][0] = True
   
   while q:
     x, y, cnt = q.popleft()
-    if x == N - 1 and y == M - 1:
+    if x == M - 1 and y == N - 1:
       return cnt
     
-    for dx, dy in d:
+    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
       nx, ny = x + dx, y + dy
-      if 0 <= nx < N and 0 <= ny < M:
-        if not visited[nx][ny] and board[nx][ny] == 1:
+      if 0 <= nx <= M - 1 and 0 <= ny <= N - 1:
+        if not visited[ny][nx] and board[ny][nx] == 1:
+          visited[ny][nx] = True
           q.append((nx, ny, cnt + 1))
-          visited[nx][ny] = True
+  return -1
 
-print(bfs(0, 0))
+print(bfs())
