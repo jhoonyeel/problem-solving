@@ -1,10 +1,12 @@
 N = int(input())
-score = []
+
+grade = []
 for _ in range(N):
-  l = input().split()
-  score.append(l[:1] + list(map(int, l[1:])))
+  name, k, e, m = input().split()
+  korean, english, math = map(int, (k, e, m))
+  grade.append([name, korean, english, math])
 
-srt = sorted(score, key=lambda x: (-x[1], x[2], -x[3], x[0]))
+srt = sorted(grade, key=lambda row: (-row[1], row[2], -row[3], row[0]))
 
-for pack in srt:
-  print(pack[0])
+for r in srt:
+  print(r[0])
