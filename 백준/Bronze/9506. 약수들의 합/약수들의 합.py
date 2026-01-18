@@ -1,16 +1,15 @@
-def is_in_num(n):
-  res = []
-  for x in range(1, n):
-    if n % x == 0:
-      res.append(x)
-  return res
+import sys
 
-while True:
-  n = int(input())
+for line in sys.stdin:
+  n = int(line.rstrip())
   if n == -1:
     break
   
-  res = is_in_num(n)
+  res = []
+  for i in range(1, n // 2 + 1):
+    if n % i == 0:
+      res.append(i)
+  
   total = sum(res)
   if total == n:
     print(f"{n} = {' + '.join(map(str, res))}")
