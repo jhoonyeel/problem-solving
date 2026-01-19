@@ -1,32 +1,30 @@
 N = int(input())
 Ai = list(map(int, input().split()))
-cnt = list(map(int, input().split()))
+op_cnt = list(map(int, input().split()))
 
-cal = {
-  0: lambda a, b: a + b,
-  1: lambda a, b: a - b,
-  2: lambda a, b: a * b,
-  3: lambda a, b: -(abs(a) // b) if a < 0 else a // b
+d = {
+  0: lambda x, y: x + y,
+  1: lambda x, y: x - y,
+  2: lambda x, y: x * y,
+  3: lambda x, y: -(-x // y) if x < 0 else x // y,
 }
 
-def dfs(idx, result, op_cnt):
-  if idx == N:
-    return result, result
+max_val = float('-inf')
+min_val = float('inf')
+def dfs(node, cur, arr):
+  global max_val, min_val
+  if node == N - 1:
+    min_val = min(min_val, cur)
+    max_val = max(max_val, cur)
+    return
+  
+  for idx in range(4):
+    if op_cnt[idx] > 0:
+      val = d[idx](cur, Ai[node + 1])
+      arr[idx] -= 1
+      dfs(node + 1, val, arr)
+      arr[idx] += 1
+dfs(0, Ai[0], op_cnt)
 
-  local_max = float('-inf')
-  local_min = float('inf')
-
-  for op in range(4):
-    if op_cnt[op] > 0:
-      op_cnt[op] -= 1
-      new_result = cal[op](result, Ai[idx])
-      max_r, min_r = dfs(idx + 1, new_result, op_cnt)
-      local_max = max(local_max, max_r)
-      local_min = min(local_min, min_r)
-      op_cnt[op] += 1
-
-  return local_max, local_min
-
-max_val, min_val = dfs(1, Ai[0], cnt[:])
 print(max_val)
 print(min_val)
