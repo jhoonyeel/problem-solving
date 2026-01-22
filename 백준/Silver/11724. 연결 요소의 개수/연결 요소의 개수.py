@@ -2,22 +2,15 @@ import sys
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-graph = {}
-
+graph = [[] for _ in range(N + 1)]
 for _ in range(M):
   u, v = map(int, input().split())
-  graph.setdefault(u, []).append(v)
-  graph.setdefault(v, []).append(u)
+  graph[u].append(v)
+  graph[v].append(u)
 
-for i in range(1, N + 1):
-  if i not in graph:
-    graph[i] = []
-  else:
-    graph[i].sort()  # 탐색 효율 향상
-
-def dfs_stack(start, visited):
-  stack = [start]
-  visited[start] = True
+def dfs_stack(node):
+  stack = [node]
+  visited[node] = True
   while stack:
     cur = stack.pop()
     for nxt in graph[cur]:
@@ -27,8 +20,8 @@ def dfs_stack(start, visited):
 
 visited = [False] * (N + 1)
 cnt = 0
-for i in range(1, N + 1):
-  if not visited[i]:
-    dfs_stack(i, visited)
+for vertex in range(1, N + 1):
+  if not visited[vertex]:
+    dfs_stack(vertex)
     cnt += 1
 print(cnt)
