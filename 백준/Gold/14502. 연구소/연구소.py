@@ -1,41 +1,63 @@
 from collections import deque
-from itertools import combinations
-import copy
 
 N, M = map(int, input().split())
-
 board = [list(map(int, input().split())) for _ in range(N)]
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
+d = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
-def bfs(temp_board):
-  q = deque()
-  for i in range(N):
-    for j in range(M):
-      if temp_board[i][j] == 2:
-        q.append((i, j))
+empty = []
+virus = []
+
+for i in range(N):
+  for j in range(M):
+    if board[i][j] == 0:
+      empty.append((i, j))
+    elif board[i][j] == 2:
+      virus.append((i, j))
+
+def spread_and_count():
+  q = deque(virus)
+  infected = []
 
   while q:
     x, y = q.popleft()
-    for d in range(4):
-      nx = x + dx[d]
-      ny = y + dy[d]
-      if 0 <= nx < N and 0 <= ny < M and temp_board[nx][ny] == 0:
-        temp_board[nx][ny] = 2
-        q.append((nx, ny))
-  
-  return sum(row.count(0) for row in temp_board)
+    for dx, dy in d:
+      nx, ny = x + dx, y + dy
+      if 0 <= nx < N and 0 <= ny < M:
+        if board[nx][ny] == 0:
+          board[nx][ny] = 2
+          infected.append((nx, ny))
+          q.append((nx, ny))
 
-# 벽 세울 빈 칸 좌표 수집
-candidates = [(i, j) for i in range(N) for j in range(M) if board[i][j] == 0]
+  safe = 0
+  for i in range(N):
+    for j in range(M):
+      if board[i][j] == 0:
+        safe += 1
 
-max_safe = 0
-for walls in combinations(candidates, 3):
-  copied = copy.deepcopy(board)
-  for x, y in walls:
-    copied[x][y] = 1
-  safe_zone = bfs(copied)
-  max_safe = max(max_safe, safe_zone)
+  for x, y in infected:
+    board[x][y] = 0
 
-print(max_safe)
+  return safe
+
+ans = 0
+L = len(empty)
+
+for i in range(L):
+  for j in range(i + 1, L):
+    for k in range(j + 1, L):
+      x1, y1 = empty[i]
+      x2, y2 = empty[j]
+      x3, y3 = empty[k]
+
+      board[x1][y1] = 1
+      board[x2][y2] = 1
+      board[x3][y3] = 1
+
+      ans = max(ans, spread_and_count())
+
+      board[x1][y1] = 0
+      board[x2][y2] = 0
+      board[x3][y3] = 0
+
+print(ans)
