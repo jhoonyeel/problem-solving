@@ -1,17 +1,21 @@
 N = int(input())
 Wi = list(map(int, input().split()))
 
-max_energy = 0
-def dfs(arr, energy):
-  global max_energy
-  if len(arr) == 2:
-    max_energy = max(max_energy, energy)
+res = 0
+def dfs(n, weights, energy):
+  global res
+  
+  if n == 2:
+    res = max(res, energy)
     return
   
-  for i in range(1, len(arr) - 1):
-    val = arr[i-1] * arr[i+1]
-    removed = arr.pop(i)
-    dfs(arr, energy + val)
-    arr.insert(i, removed)
-dfs(Wi[:], 0)
-print(max_energy)
+  for i in range(1, n - 1):
+    e = weights[i - 1] * weights[i + 1]
+    p = weights.pop(i)
+    dfs(n - 1, weights, energy + e)
+    weights.insert(i, p)
+  
+  return
+
+dfs(N, Wi[:], 0)
+print(res)
