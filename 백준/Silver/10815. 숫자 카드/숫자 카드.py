@@ -1,22 +1,19 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
-exist = sorted(map(int, input().split()))
+numbers = list(map(int, input().split()))
 M = int(input())
-should_find = list(map(int, input().split()))
+inner = list(map(int, input().split()))
 
-def binary_search(target):
-  start, end = 0, len(exist) - 1
-  
-  while start <= end:
-    mid = (start + end) // 2
-    
-    if exist[mid] == target:
-      return 1
-    elif exist[mid] < target:
-      start = mid + 1
-    else:
-      end = mid - 1
+OFFSET = 10000000
+have = [0] * (2 * OFFSET + 1)
 
-  return 0
+for x in numbers:
+  have[x + OFFSET] = 1
 
-for x in should_find:
-  print(binary_search(x), end=' ')
+res = []
+for x in inner:
+  res.append(have[x + OFFSET])
+
+print(*res)
