@@ -3,15 +3,15 @@ def solution(k, dungeons):
     visited = [False] * l
     
     res = 0
-    def dfs(idx, cur):
+    def dfs(cnt, cur):
         nonlocal res
-        res = max(res, idx)
+        res = max(res, cnt)
         
         for i, (minimum, spent) in enumerate(dungeons):
             if not visited[i]:
                 if cur >= minimum:
                     visited[i] = True
-                    dfs(idx + 1, cur - spent)
+                    dfs(cnt + 1, cur - spent)
                     visited[i] = False
     
     dfs(0, k)
