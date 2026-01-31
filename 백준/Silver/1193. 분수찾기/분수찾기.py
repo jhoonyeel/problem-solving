@@ -1,20 +1,17 @@
 X = int(input())
 
-cross_sum = 0
-line = 0
+step = 1
+while step * (step + 1) // 2 < X:
+  step += 1
 
-# X번째 분수가 속한 대각선 찾기
-while X > cross_sum:
-    line += 1
-    cross_sum += line
+base_seq = (step - 1) * step // 2
+offset = X - (base_seq + 1)
 
-# 해당 대각선 내에서 몇 번째인지
-idx = cross_sum - X
-
-if line % 2 == 0:  # 짝수 줄: 아래에서 위로
-  num = line - idx
-  den = 1 + idx
-else:               # 홀수 줄: 위에서 아래로
-  num = 1 + idx
-  den = line - idx
-print(f"{num}/{den}")
+bottom, top = 0, 0
+if step % 2 == 0:
+  top = 1 + offset
+  bottom = step - offset
+else:
+  top = step - offset
+  bottom = 1 + offset
+print(f"{top}/{bottom}")
