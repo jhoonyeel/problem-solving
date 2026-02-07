@@ -1,16 +1,12 @@
-a = list(map(int, input().split()))
-b = list(map(int, input().split()))
-c = list(map(int, input().split()))
+dots = [list(map(int, input().split())) for _ in range(3)]
 
-xs = [a[0], b[0], c[0]]
-ys = [a[1], b[1], c[1]]
+ds_x = [dot[0] for dot in dots]
+ds_y = [dot[1] for dot in dots]
 
-x4, y4 = 0, 0
-for x in xs:
-  if xs.count(x) == 1:
-    x4 = x
-for y in ys:
-  if ys.count(y) == 1:
-    y4 = y
-
-print(x4, y4)
+x, y = 0, 0
+for i in range(3):
+  if ds_x.count(ds_x[i]) == 1:
+    x = ds_x[i]
+  if ds_y.count(ds_y[i]) == 1:
+    y = ds_y[i]
+print(x, y)
