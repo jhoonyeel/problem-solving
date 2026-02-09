@@ -1,23 +1,19 @@
 N = int(input())
-seq = list(map(int, input().split()))
-target = seq[-1]
+numbers = list(map(int, input().split()))
 
-# dp[idx][cur] = idx번째까지 계산해서 cur값을 만들 수 있는 경우의 수
-dp = [[-1] * 21 for _ in range(N)]
+MAX = 20
+dp = [[0] * (MAX + 1) for _ in range(N)]
+dp[0][numbers[0]] = 1 # dp[i][v]: i번째 숫자까지 사용해서, 값 v를 만들 수 있는 경우의 수
 
-def dfs(idx, cur):
-  if cur < 0 or cur > 20:
-    return 0
+for i in range(1, N - 1):
+  for v in range(MAX + 1):
+    if dp[i - 1][v] == 0:
+      continue
+    plus = v + numbers[i]
+    minus = v - numbers[i]
+    if 0 <= plus <= MAX:
+      dp[i][plus] += dp[i - 1][v]
+    if 0 <= minus <= MAX:
+      dp[i][minus] += dp[i - 1][v]
 
-  if idx == N - 1:
-    return 1 if cur == target else 0
-
-  if dp[idx][cur] != -1:
-    return dp[idx][cur]
-
-  res = 0
-  res += dfs(idx + 1, cur + seq[idx])
-  res += dfs(idx + 1, cur - seq[idx])
-  dp[idx][cur] = res
-  return res
-print(dfs(1, seq[0]))
+print(dp[N - 2][numbers[-1]])
