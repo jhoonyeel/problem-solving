@@ -1,11 +1,13 @@
-board = [list(input()) for _ in range(5)]
+import sys
 
-res = ''
-row_len_lst = [len(row) for row in board]
-max_len = max(row_len_lst)
+words = []
+for line in sys.stdin:
+  words.append(list(line.strip()))
 
-for col in range(max_len):
-  for row in range(5):
-    if col < row_len_lst[row]:
-      res += board[row][col]
-print(res)
+max_len = max(len(w) for w in words)
+res = []
+for i in range(max_len):          # 열 기준
+  for j in range(len(words)):     # 행 순회
+    if i < len(words[j]):         # 해당 열이 존재하면
+      res.append(words[j][i])
+print(''.join(res))
