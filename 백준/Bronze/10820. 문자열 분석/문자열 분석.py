@@ -1,15 +1,20 @@
 import sys
 
 for line in sys.stdin:
-  line = line.rstrip("\n")  # 개행 제거
-  lower, upper, num, space = 0, 0, 0, 0
-  for x in line:
-    if x.islower():
-      lower += 1
-    elif x.isupper():
-      upper += 1
-    elif x.isdigit():
+  l = list(line)
+  sm, bg, num, space = 0, 0, 0, 0
+  for ch in l:
+    if ch.isalpha():
+      if ch.islower():
+        sm += 1
+        continue
+      elif ch.isupper():
+        bg += 1
+        continue
+    elif ch.isnumeric():
       num += 1
-    else:
+      continue
+    elif ch == ' ':
       space += 1
-  print(lower, upper, num, space)
+      continue
+  print(sm, bg, num, space)
