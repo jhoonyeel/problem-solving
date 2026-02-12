@@ -1,14 +1,14 @@
 import sys
-input = sys.stdin.readline
 
+MAX = 10_000
 N = int(input())
-count = [0] * 10001  # 1~10000
+num_freq = [0] * (MAX + 1)
 
-for _ in range(N):
-  num = int(input())
-  count[num] += 1
+for line in sys.stdin:
+  num = int(line.rstrip())
+  num_freq[num] += 1
 
-for i in range(1, 10001):
-  if count[i]:
-    for _ in range(count[i]):
-      print(i)
+for idx, cnt in enumerate(num_freq):
+  if cnt > 0:
+    for _ in range(cnt):
+      sys.stdout.write(str(idx) + '\n')
