@@ -1,11 +1,13 @@
 N = int(input())
+DEFAULT = "ChongChong"
 
-danced = {"ChongChong"}
-
+s = set()
 for _ in range(N):
-  a, b = input().split()
-  # 둘 중 하나라도 이미 춤을 추고 있었다면
-  if a in danced or b in danced:
-    danced.add(a)
-    danced.add(b)
-print(len(danced))
+  A, B = input().split()
+  if A == DEFAULT or B == DEFAULT:
+    s.add(A)
+    s.add(B)
+  elif A in s or B in s:
+    s.add(A)
+    s.add(B)
+print(len(s))
