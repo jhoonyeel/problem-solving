@@ -1,21 +1,21 @@
-from collections import deque
+import sys
+input = sys.stdin.readline
 
 N = int(input())
-nums = list(map(int, input().split()))
-
-# (풍선 번호, 이동값) 형태로 저장
-q = deque((i + 1, n) for i, n in enumerate(nums))
+numbers = list(enumerate(map(int, input().split()), start=1))
 
 res = []
-while q:
-  idx, move = q.popleft()
-  res.append(idx)
-  
-  if not q:
+idx = 0
+
+while numbers:
+  num, move = numbers.pop(idx)
+  res.append(num)
+
+  if not numbers:
     break
-  
+
   if move > 0:
-    q.rotate(-(move - 1))
+    idx = (idx + move - 1) % len(numbers)
   else:
-    q.rotate(-move)
+    idx = (idx + move) % len(numbers)
 print(*res)
