@@ -1,8 +1,8 @@
 S = input()
+n = len(S)
 
-cnt = 0
 s = set()
-for length in range(len(S)):
-  for start in range(len(S) - length):
-    s.add(S[start:start+length+1])
+for length in range(1, n + 1):
+  for start in range(n - length + 1):
+    s.add(S[start : start+length])
 print(len(s))
