@@ -1,12 +1,16 @@
 dots = [list(map(int, input().split())) for _ in range(3)]
 
-ds_x = [dot[0] for dot in dots]
-ds_y = [dot[1] for dot in dots]
+min_x, max_x = float('inf'), float('-inf')
+min_y, max_y = float('inf'), float('-inf')
+for dot in dots:
+  x, y = dot
+  min_x = min(min_x, x)
+  max_x = max(max_x, x)
+  min_y = min(min_y, y)
+  max_y = max(max_y, y)
 
-x, y = 0, 0
-for i in range(3):
-  if ds_x.count(ds_x[i]) == 1:
-    x = ds_x[i]
-  if ds_y.count(ds_y[i]) == 1:
-    y = ds_y[i]
-print(x, y)
+candidates = [[min_x, min_y], [min_x, max_y], [max_x, min_y], [max_x, max_y]]
+
+for c in candidates:
+  if c not in dots:
+    print(*c)
