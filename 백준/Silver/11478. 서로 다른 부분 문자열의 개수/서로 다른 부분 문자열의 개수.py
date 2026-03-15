@@ -1,8 +1,8 @@
 S = input()
 
-n = len(S)
-dic = set()
-for i in range(n):
-  for j in range(i, n):
-    dic.add(S[i:j + 1])
-print(len(dic))
+cnt = 0
+s = set()
+for length in range(len(S)):
+  for start in range(len(S) - length):
+    s.add(S[start:start+length+1])
+print(len(s))
