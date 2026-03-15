@@ -1,16 +1,7 @@
-dots = [list(map(int, input().split())) for _ in range(3)]
+x1, y1 = map(int, input().split())
+x2, y2 = map(int, input().split())
+x3, y3 = map(int, input().split())
 
-min_x, max_x = float('inf'), float('-inf')
-min_y, max_y = float('inf'), float('-inf')
-for dot in dots:
-  x, y = dot
-  min_x = min(min_x, x)
-  max_x = max(max_x, x)
-  min_y = min(min_y, y)
-  max_y = max(max_y, y)
-
-candidates = [[min_x, min_y], [min_x, max_y], [max_x, min_y], [max_x, max_y]]
-
-for c in candidates:
-  if c not in dots:
-    print(*c)
+x = x1 ^ x2 ^ x3
+y = y1 ^ y2 ^ y3
+print(x, y)
