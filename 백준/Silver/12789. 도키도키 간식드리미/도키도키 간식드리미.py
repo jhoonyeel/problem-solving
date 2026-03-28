@@ -1,22 +1,25 @@
-import sys
-input = sys.stdin.readline
+from collections import deque
 
 N = int(input())
-std_num = list(map(int, input().split()))
+tickets = deque(map(int, input().split()))
 
 stk = []
 target = 1
-idx = 0
 
-while idx < N:
-  if std_num[idx] == target:
-    target += 1
-    idx += 1
+while tickets:
+  if target != tickets[0]:
+    stk.append(tickets.popleft())
   else:
-    stk.append(std_num[idx])
-    idx += 1
-
-  while stk and stk[-1] == target:
-    stk.pop()
+    tickets.popleft()
     target += 1
-print("Nice" if target == N + 1 else "Sad")
+  while stk:
+    if stk[-1] == target:
+      stk.pop()
+      target += 1
+    else:
+      break
+
+if not stk:
+  print("Nice")
+else:
+  print("Sad")
