@@ -1,25 +1,22 @@
 from collections import deque
 
 N = int(input())
-tickets = deque(map(int, input().split()))
-
+q = deque(map(int, input().split()))
 stk = []
+
 target = 1
 
-while tickets:
-  if target != tickets[0]:
-    stk.append(tickets.popleft())
-  else:
-    tickets.popleft()
+while q or stk:
+  while stk and stk[-1] == target:
+    stk.pop()
     target += 1
-  while stk:
-    if stk[-1] == target:
-      stk.pop()
-      target += 1
-    else:
-      break
+  
+  if q and q[0] == target:
+    q.popleft()
+    target += 1
+  elif q:
+    stk.append(q.popleft())
+  else:
+    break
 
-if not stk:
-  print("Nice")
-else:
-  print("Sad")
+print("Nice" if target == N + 1 else "Sad")
