@@ -19,7 +19,7 @@ for _ in range(T):
     print(10)
     continue
   
-  repeat = len(d[a % 10])
+  repeat = len(d[before_last_digit])
   idx = (b - 1) % repeat
-  after_last_digit = d[a % 10][idx]
+  after_last_digit = d[before_last_digit][idx]
   print(after_last_digit)
