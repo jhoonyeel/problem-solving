@@ -1,12 +1,9 @@
 N = int(input())
-
 Pi = list(map(int, input().split()))
 
-sorting = sorted(Pi)
+srt = sorted(Pi)
 
-acc = 0
-res = 0
-for x in sorting:
-  acc += x
-  res += acc
-print(res)
+total = 0
+for i in range(N):
+  total += sum(srt[:i+1])
+print(total)
