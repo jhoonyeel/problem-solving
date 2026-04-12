@@ -1,13 +1,17 @@
 N = int(input())
-
 if N == 0:
   print(0)
-else:
-  res = []
-  while N != 0:
-    N, mod = divmod(N, -2)
-    if mod < 0:
-      N += 1
-      mod += 2
-    res.append(str(mod))
-  print(''.join(reversed(res)))
+  exit()
+
+res = []
+while N != 0:
+  digit = N % -2
+  N //= -2
+  
+  if digit < 0:
+    digit += 2
+    N += 1
+  
+  res.append(str(digit))
+
+print(''.join(reversed(res)))
