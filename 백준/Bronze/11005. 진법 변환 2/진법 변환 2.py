@@ -1,18 +1,15 @@
 N, B = map(int, input().split())
 
-pw = 0
-while B ** pw <= N:
-  pw += 1
-
 res = []
-for i in range(pw, -1, -1):
-  cur = N // B ** i
-  N %= B ** i
+while N > 0:
+  digit = N % B
+  N //= B
   
-  if cur >= 10:
-    cur = chr(ord('A') + cur - 10)
+  if digit >= 10:
+    digit = chr(ord('A') + digit - 10)
   else:
-    cur = str(cur)
-  res.append(cur)
+    digit = str(digit)
+  
+  res.append(digit)
 
-print(''.join(res).lstrip("0"))
+print(''.join(reversed(res)))
