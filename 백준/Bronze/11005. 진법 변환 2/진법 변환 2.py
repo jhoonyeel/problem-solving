@@ -3,7 +3,6 @@ N, B = map(int, input().split())
 pw = 0
 while B ** pw <= N:
   pw += 1
-pw -= 1
 
 res = []
 for i in range(pw, -1, -1):
@@ -16,4 +15,4 @@ for i in range(pw, -1, -1):
     cur = str(cur)
   res.append(cur)
 
-print(''.join(res))
+print(''.join(res).lstrip("0"))
