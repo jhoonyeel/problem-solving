@@ -1,3 +1,6 @@
+# 오답
+# 여러번 배열 추가할 때는 항상 참조 문제 고려.
+
 def solution(arr):
     row_cnt = len(arr)
     col_cnt = max(len(arr[r]) for r in range(row_cnt))
