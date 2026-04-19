@@ -1,8 +1,9 @@
+# 문자열 읽기만 할 때는 list변환 필요 없음
+
 def solution(code):
-    l = list(code)
     mode = 0
     ret = []
-    for idx, v in enumerate(l):
+    for idx, v in enumerate(code):
         if v == '1':
             mode = 1 - mode
             continue
