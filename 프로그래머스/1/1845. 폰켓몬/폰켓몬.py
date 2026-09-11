@@ -1,22 +1,13 @@
-## 풀이
-# 번호에 대한 개수를 매김.
-# 적은 개수를 가진 번호부터 가져감. n/2까지 가져가기 반복.
-# 전체 종류 리턴
+## 오답
+# 처음엔 frequency map에서 적은 것부터 하나씩 n/2까지 가져가는 것 반복하는 시뮬레이션을 구현함.
+# 그러나 정렬을 시키는 순간 frequency map이 리스트로 변환되며 dict 성질을 잃게되고, 기존 시뮬레이션 의도와 달라짐.
+
+# 결국, 중복 요소를 하나로 합치기 위함이니, set()을 사용함.
+# set()의 길이와 n//2 길이를 비교해, n//2를 max값으로 가지는 s값을 리턴함. -> (s, n//2]
+# 애초에 n//2(가져갈 수 있는 수)가 종류 개수(리턴값)와 의미하는 바가 일치함.
+# 따라서, 기본적으로 n//2이되, 중복으로 인해 작아지면 s. -> min(n//2, s)
 
 def solution(nums):
-    n = len(nums)
-    d = {}
-    for el in nums:
-        d[el] = d.get(el, 0) + 1
+    s = set(nums)
     
-    srt_d = sorted(d.items(), key=lambda x: x[1])
-    
-    res = {}
-    for k, v in srt_d:
-        if len(res) == n//2:
-            break
-        if v > 0:
-            v -= 1
-            res[k] = res.get(k, 0) + 1
-    
-    return len(res)
+    return min(len(nums)//2, len(s))
