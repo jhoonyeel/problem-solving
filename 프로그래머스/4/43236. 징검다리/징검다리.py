@@ -26,7 +26,7 @@ def solution(distance, rocks, n):
         if distance - prev_location < candidate_minest:
             remove += 1
         
-        return True if remove <= n else False
+        return remove <= n
     
     left = 1
     right = distance
