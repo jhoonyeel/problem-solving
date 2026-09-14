@@ -19,4 +19,16 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0013-roman-to-integer](https://github.com/jhoonyeel/problem-solving/tree/main/0013-roman-to-integer/) | Easy |
+## Stack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0589-n-ary-tree-preorder-traversal](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0589-n-ary-tree-preorder-traversal/) | Easy |
+## Tree
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0589-n-ary-tree-preorder-traversal](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0589-n-ary-tree-preorder-traversal/) | Easy |
+## Depth-First Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0589-n-ary-tree-preorder-traversal](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0589-n-ary-tree-preorder-traversal/) | Easy |
 <!---LeetCode Topics End-->
