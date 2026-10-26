@@ -12,6 +12,7 @@
 | ------- | ------- |
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
 | [0013-roman-to-integer](https://github.com/jhoonyeel/problem-solving/tree/main/0013-roman-to-integer/) | Easy |
+| [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -36,4 +37,13 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
+| [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
+## Two Pointers
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
+## Sorting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
 <!---LeetCode Topics End-->
