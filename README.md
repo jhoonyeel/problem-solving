@@ -37,6 +37,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
+| [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
 ## Two Pointers
 | Problem Name | Difficulty |
@@ -46,4 +47,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
+## Greedy
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
 <!---LeetCode Topics End-->
