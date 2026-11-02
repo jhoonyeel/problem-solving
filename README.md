@@ -13,6 +13,7 @@
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
 | [0013-roman-to-integer](https://github.com/jhoonyeel/problem-solving/tree/main/0013-roman-to-integer/) | Easy |
 | [2062-count-vowel-substrings-of-a-string](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2062-count-vowel-substrings-of-a-string/) | Easy |
+| [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
 ## Math
 | Problem Name | Difficulty |
@@ -40,6 +41,7 @@
 | ------- | ------- |
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
 | [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
+| [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
 ## Two Pointers
 | Problem Name | Difficulty |
@@ -53,4 +55,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
+## Matrix
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
 <!---LeetCode Topics End-->
