@@ -43,6 +43,7 @@
 | [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
 | [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
+| [2656-maximum-sum-with-exactly-k-elements](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2656-maximum-sum-with-exactly-k-elements/) | Easy |
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -55,6 +56,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
+| [2656-maximum-sum-with-exactly-k-elements](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2656-maximum-sum-with-exactly-k-elements/) | Easy |
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
