@@ -40,6 +40,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0001-two-sum/) | Easy |
+| [0704-binary-search](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0704-binary-search/) | Easy |
 | [2078-two-furthest-houses-with-different-colors](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2078-two-furthest-houses-with-different-colors/) | Easy |
 | [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
 | [2465-number-of-distinct-averages](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2465-number-of-distinct-averages/) | Easy |
@@ -61,4 +62,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2133-check-if-every-row-and-column-contains-all-numbers](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/2133-check-if-every-row-and-column-contains-all-numbers/) | Easy |
+## Binary Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0704-binary-search](https://github.com/jhoonyeel/problem-solving/tree/main/LeetCode/Easy/0704-binary-search/) | Easy |
 <!---LeetCode Topics End-->
