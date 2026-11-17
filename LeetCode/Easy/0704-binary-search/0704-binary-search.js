@@ -7,15 +7,15 @@
  * @return {number}
  */
 var search = function(nums, target) {
-    let e = nums.length
     let s = 0
+    let e = nums.length - 1
 
-    while (s < e) {
+    while (s <= e) {
         const mid = Math.floor((s + e) / 2)
         if (nums[mid] < target) {
             s = mid + 1
         } else if (nums[mid] > target) {
-            e = mid
+            e = mid - 1
         } else {
             return mid
         }
